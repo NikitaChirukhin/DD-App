@@ -56,7 +56,6 @@ class NetWorkService: NetworkServiceProtocol {
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(url)"
         genericFetch(url: urlString, completion: completion)
     }
-    
 }
 
 //MARK: NetworkService for images

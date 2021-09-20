@@ -12,7 +12,7 @@ protocol CoreDataManagerProtocol {
     func uploadDrink(drink: DrinkComponent)
     func getAllDrinksComponents() -> [DrinkComponentCoreData]
     func takeComponentsOfDrink(with predicate: NSPredicate)  -> [DrinkComponentCoreData]
-    func deleteFilm(with drink: DrinkComponent)
+    func deleteDrink(with drink: DrinkComponent)
 }
 
 class CoreDataManager: CoreDataManagerProtocol {
@@ -23,7 +23,7 @@ class CoreDataManager: CoreDataManagerProtocol {
     
     func uploadDrink(drink: DrinkComponent) {
         
-        let backgroundContext = stack.mainContext
+        let backgroundContext = stack.backgroundContext
         backgroundContext.performAndWait {
             let checkDrink = try? fetchRequestForDrink(for: drink).execute()
             if checkDrink?.isEmpty ?? false {
@@ -58,13 +58,13 @@ class CoreDataManager: CoreDataManagerProtocol {
          return result
      }
     
-    func deleteFilm(with drink: DrinkComponent) {
-        let context = stack.backgroundContext
-        context.performAndWait {
+    func deleteDrink(with drink: DrinkComponent) {
+        let backgroundContext = stack.backgroundContext
+        backgroundContext.performAndWait {
             if let deleteDrink = try? self.fetchRequestForDrink(for: drink).execute().first {
-                context.delete(deleteDrink)
+                backgroundContext.delete(deleteDrink)
             }
-            try? context.save()
+            try? backgroundContext.save()
         }
     }
     

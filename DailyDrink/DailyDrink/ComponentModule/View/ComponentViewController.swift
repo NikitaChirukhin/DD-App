@@ -117,19 +117,7 @@ class ComponentViewController: UIViewController {
     @objc func likeButtonAction() {
         presenter.saveDrinkToCoreData()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        UINavigationBar.appearance().barTintColor = .none
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        
-        UINavigationBar.appearance().barTintColor = .lightBlack
-    }
-    
+ 
     func setupView() {
 
         navigationBarItem()
@@ -144,13 +132,13 @@ class ComponentViewController: UIViewController {
     
     func navigationBarItem() {
         
-        let likeBarButton = UIBarButtonItem.init(image: UIImage(systemName: "heart"), style: .done, target: self, action: #selector(likeButtonAction))
+        let likeBarButton = UIBarButtonItem.init(image: UIImage(systemName: "heart.circle"), style: .done, target: self, action: #selector(likeButtonAction))
         let popButton = UIBarButtonItem.init(image: UIImage(systemName: "arrow.backward.circle.fill"), style: .done, target: self, action: #selector(popButtonAction))
         navigationController?.navigationBar.isTranslucent = true
         navigationItem.leftBarButtonItem = popButton
         navigationItem.rightBarButtonItem = likeBarButton
-        navigationItem.leftBarButtonItem?.tintColor = .black
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.leftBarButtonItem?.tintColor = .systemYellow
+        navigationItem.rightBarButtonItem?.tintColor = .systemYellow
         navigationItem.hidesBackButton = true
     }
 }

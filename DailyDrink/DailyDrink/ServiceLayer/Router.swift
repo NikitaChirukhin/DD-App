@@ -31,5 +31,4 @@ class Router: RouterProtocol {
         self.assemblyBuilder = assemblyBuilder
         self.navigationController = navigationController
     }
-    
 }

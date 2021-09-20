@@ -3,7 +3,7 @@
     <entity name="DrinkCoreData" representedClassName="DrinkCoreData" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="glass" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="isAlcoholic" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="recipe" optional="YES" attributeType="String"/>

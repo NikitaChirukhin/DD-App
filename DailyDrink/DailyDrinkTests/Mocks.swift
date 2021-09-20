@@ -8,7 +8,7 @@
 import UIKit
 @testable import DailyDrink
 
-class MockView: MainViewProtocol {
+class MockMainView: MainViewProtocol {
     
     var successCounter: Int = 0
     
@@ -16,15 +16,16 @@ class MockView: MainViewProtocol {
         successCounter += 1
     }
     
-    func failure(error: Error) {
-        
-    }
+    func failure(error: Error) { }
 }
 
 class MockModuleBuilder: BuilderProtocol {
     
+    var workingTest = false
+    
     func createComponentModule(id: String, router: RouterProtocol) -> UIViewController {
         let vc = UIViewController()
+        workingTest = true
         return vc
     }
     
@@ -38,9 +39,7 @@ class MockNetworkService: NetworkServiceProtocol {
     
     var drinks: Drinks?
     
-    init() {
-        
-    }
+    init() { }
     
     convenience init(drinks: Drinks?) {
         self.init()
@@ -65,28 +64,15 @@ class MockNetworkService: NetworkServiceProtocol {
         }
     }
     
-    func getDrinkComponent(url: String, completion: @escaping (Result<DrinkComponentsAPI, Error>) -> Void) {
-        
-    }
-    
-    func getBigDrinkImage(url: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        
-    }
-
-    func requestByName(url: String, completion: @escaping (Result<Drinks, Error>) -> Void) {
-
-    }
+    func getDrinkComponent(url: String, completion: @escaping (Result<DrinkComponentsAPI, Error>) -> Void) { }
+    func getBigDrinkImage(url: String, completion: @escaping (Result<Data, Error>) -> Void) { }
+    func requestByName(url: String, completion: @escaping (Result<Drinks, Error>) -> Void) { }
 }
 
 class MockRouter: RouterProtocol {
     
-    func showComponent(id: String) {
-        
-    }
-    
-    func pop() {
-        
-    }
+    func showComponent(id: String) { }
+    func pop() { }
 
     var navigationController: UINavigationController
     var builder: BuilderProtocol

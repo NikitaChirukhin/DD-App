@@ -18,7 +18,7 @@ extension DrinkCoreData {
 
     @NSManaged public var name: String?
     @NSManaged public var glass: String?
-    @NSManaged public var id: Int16
+    @NSManaged public var id: Int64
     @NSManaged public var recipe: String?
     @NSManaged public var category: String?
     @NSManaged public var isAlcoholic: Bool

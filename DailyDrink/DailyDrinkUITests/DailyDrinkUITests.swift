@@ -9,17 +9,24 @@ import XCTest
 
 class DailyCocktailUITests: XCTestCase {
 
+    var application: XCUIApplication!
+    
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        application = XCUIApplication()
+        application.launch()
+    }
+    
+    override func tearDownWithError() throws {
+        application = nil
+        try super.tearDownWithError()
+    }
     
     func test_shouldShouldPushComponentViewSuccessfully() {
+        let tasksDataModePage = TasksDataModelPage(application: application)
         
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.tables.cells.firstMatch.tap()
-        
-        let arrowBackwardCircleFillButton = app.navigationBars["Most Popular"].buttons["arrow.backward.circle.fill"]
-        
-        XCTAssert(arrowBackwardCircleFillButton.exists)
+            tasksDataModePage
+                .tapOnCell()
     }
 
 }

@@ -17,7 +17,7 @@ public class DrinkCoreData: NSManagedObject {
         self.glass = drink.glass
         self.category = drink.category
         self.isAlcoholic = drink.isAlcoholic
-        self.id = Int16(drink.id)
+        self.id = Int64(drink.id)
         self.recipe = drink.recipe
     }
 }

@@ -12,15 +12,20 @@ class RouterProtocolTest: XCTestCase {
     
     var router: RouterProtocol!
     var builder: MockModuleBuilder!
-    
-    override func setUp() {
-        let navigationController = UINavigationController()
-        builder = MockModuleBuilder()
-        router = Router(navigationController: navigationController, assemblyBuilder: builder)
-    }
-    
-    override class func tearDown() {
+
+    func test_ShowComponent() {
         
+        //arrange
+        let navVC = UINavigationController()
+        builder = MockModuleBuilder()
+        router = Router(navigationController: navVC, assemblyBuilder: builder)
+        let expectation = "success"
+        
+        //act
+        router.showComponent(id: expectation)
+    
+        // assert
+        XCTAssertTrue(builder.workingTest)
     }
 }
 

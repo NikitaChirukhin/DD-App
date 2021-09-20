@@ -42,11 +42,11 @@ class ModuleBuilder: BuilderProtocol {
         let view = FavoriteViewController()
         let networkService = NetWorkService()
         let dataStoreManager = CoreDataManager()
-        let navigationController = createNavigationViewController(controller: view, title: "Favorite", image: UIImage(systemName: "suit.heart.fill"))
+        let navigationController = createNavigationViewController(controller: view, title: "Favorite", image: UIImage(systemName: "heart.fill"))
         let router = Router(navigationController: navigationController, assemblyBuilder: self)
         let presenter = FavoriteViewPresenter(view: view, router: router, networkService: networkService, dataStoreManager: dataStoreManager)
         view.presenter = presenter
-        return view
+        return navigationController
     }
     
     func createComponentModule(id: String, router: RouterProtocol) -> UIViewController {

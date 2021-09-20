@@ -27,7 +27,6 @@ class ComponentPresenter: ComponentViewPresenterProtocol {
     weak var view: ComponentViewProtocol?
     let networkService: NetworkServiceProtocol!
     var router: RouterProtocol?
-    var drinkComponentAPI: DrinkComponentAPI?
     var dataStoreManager: CoreDataManagerProtocol
     var drinkComponent: DrinkComponent?
     var id: String
